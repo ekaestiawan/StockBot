@@ -1,0 +1,5 @@
+1. You must have pre installed RTI Analytics in your PC
+2. The list of Stocks are Editable (check "ListofStocks.xlsx") and up to 100 companies (listed on IDX)
+3. You need to fill the data in "DataEmail.xlsx", "DataRTIAnalytics.xlsx", and "StockFilter.xlsx" before launch the robot
+4. You can see the result in your email or inside the "Output" Folder
+4. Good Luck and don't forget to send your feedback/suggestion to my email "epestiawan@gmail.com"

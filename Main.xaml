@@ -1,0 +1,828 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="812,9996" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:bes="clr-namespace:BalaReva.Excel.Sheets;assembly=BalaReva.Excel" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ud="clr-namespace:UiPathTeam.DataTableColumn;assembly=ChangeColumnDatatype.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="46">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="529,9791" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="excel" />
+      <Variable x:TypeArguments="sd:DataTable" Name="outdt" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="emailpengirim" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="passwordpengirim" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="penerima" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="subject" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="body" />
+      <Variable x:TypeArguments="x:String" Name="divyield" />
+      <Variable x:TypeArguments="x:String" Name="der" />
+      <Variable x:TypeArguments="x:String" Name="roe" />
+      <Variable x:TypeArguments="x:String" Name="pbv" />
+      <Variable x:TypeArguments="x:String" Name="profile" />
+      <Variable x:TypeArguments="x:String" Name="eps" />
+      <Variable x:TypeArguments="x:String" Name="per" />
+      <Variable x:TypeArguments="x:String" Name="emiten" />
+      <Variable x:TypeArguments="x:String" Name="harga" />
+      <Variable x:TypeArguments="x:String" Name="perubahan" />
+      <Variable x:TypeArguments="x:String" Name="rtiemail" />
+      <Variable x:TypeArguments="x:String" Name="rtipassword" />
+      <Variable x:TypeArguments="x:String" Name="excelpath" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="epsfilter" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="perfilter" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="pbvfilter" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="roefilter" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="derfilter" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="divyieldfilter" />
+      <Variable x:TypeArguments="sd:DataTable" Name="hasilexcel" />
+      <Variable x:TypeArguments="x:Int32" Name="hargaint" />
+      <Variable x:TypeArguments="x:String" Name="perubahanhrg" />
+      <Variable x:TypeArguments="x:Double" Name="perubahanhrgint" />
+      <Variable x:TypeArguments="x:Double" Name="epsint" />
+      <Variable x:TypeArguments="x:Double" Name="divyieldint" />
+      <Variable x:TypeArguments="x:Double" Name="perint" />
+      <Variable x:TypeArguments="x:Double" Name="pbvint" />
+      <Variable x:TypeArguments="x:Double" Name="roeint" />
+      <Variable x:TypeArguments="x:Double" Name="derint" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap:VirtualizedContainerService.HintSize="487,9699" sap2010:WorkflowViewState.IdRef="Sequence_8">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="filterdt" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="To identify the stock you want to find" DataTable="[excel]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="445,118" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPath="ListofStocks.xlsx">
+        <ui:ReadRange.Range>
+          <InArgument x:TypeArguments="x:String">
+            <Literal x:TypeArguments="x:String" Value="" />
+          </InArgument>
+        </ui:ReadRange.Range>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ReadRange>
+      <ui:BuildDataTable DataTable="[outdt]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="445,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Company&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Price&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Change_x0020__x0028__x0025__x0029_&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;EPS&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PER_x0020__x0028_x_x0029_&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PBV_x0020__x0028_x_x0029_&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ROE_x0020__x0028__x0025__x0029_&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;DER_x0020__x0028__x0025__x0029_&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Div._x0020_Yield_x0020__x0028__x0025__x0029_&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+      <ui:ReadCell Cell="B2" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_13" SheetName="Sheet1" WorkbookPath="DataRTIAnalytics.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="x:String">[rtiemail]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="B3" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_14" SheetName="Sheet1" WorkbookPath="DataRTIAnalytics.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="x:String">[rtipassword]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Open Application 'ApplicationFrameHost.ex...'" FileName="PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App" sap:VirtualizedContainerService.HintSize="445,900" sap2010:WorkflowViewState.IdRef="OpenApplication_1" InformativeScreenshot="2579898829e903cb6397e5804a7f296c" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;">
+        <ui:OpenApplication.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,754" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2" />
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'link  Login'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="324dcbdb-e51d-422a-9282-948b2ec43aee" InformativeScreenshot="7355a842ee9c866646706c0cc3dcd0ff" Selector="&lt;uia automationid='dtable' role='table' /&gt;&lt;uia name='Login' role='cell' tableCol='2' tableRow='0' /&gt;&lt;uia automationid='reg_btn' name='Login' role='link' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'edit'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[rtiemail.ToString]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="89bae1bb-77ee-4095-88bf-ec30ab5150e2" InformativeScreenshot="7dde5c5e6e1a36767b2e2686ced3c841" Selector="&lt;uia idx='2' role='table' /&gt;&lt;uia name='You can use your RTI Business user ID to login Show Remember My ID Remember My ID Forgot password? Login' role='cell' /&gt;&lt;uia role='group' /&gt;&lt;uia role='table' /&gt;&lt;uia role='cell' tableCol='0' tableRow='1' /&gt;&lt;uia role='edit' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'edit'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[rtipassword.ToString]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="89bae1bb-77ee-4095-88bf-ec30ab5150e2" InformativeScreenshot="e59cbfbb6eb35672f3fc1d4fcfb87a72" Selector="&lt;uia idx='2' role='table' /&gt;&lt;uia name='You can use your RTI Business user ID to login Show Remember My ID Remember My ID Forgot password? Login' role='cell' /&gt;&lt;uia role='group' /&gt;&lt;uia role='table' /&gt;&lt;uia name='Show' role='cell' tableCol='0' tableRow='2' /&gt;&lt;uia role='password' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'button  Login'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8d1c94d8-7e1c-4b9a-bdf8-98a25800a422" InformativeScreenshot="9c62d40885cc9b741cc9f8b95a3d7a49" Selector="&lt;uia idx='2' role='table' /&gt;&lt;uia name='You can use your RTI Business user ID to login Show Remember My ID Remember My ID Forgot password? Login' role='cell' /&gt;&lt;uia role='group' /&gt;&lt;uia role='table' /&gt;&lt;uia name='Login' role='cell' tableCol='0' tableRow='5' /&gt;&lt;uia name='Login' role='button' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+            </Sequence>
+          </ActivityAction>
+        </ui:OpenApplication.Body>
+      </ui:OpenApplication>
+      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[excel]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="445,4718" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,4570" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="hargargx" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayMS="2000" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[row(&quot;Company&quot;).ToString]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="13f3da52-f0d8-473a-882f-8a0eed0e6a97" InformativeScreenshot="c2bf7a0fa002abbe10a2b9e7c54a7f70" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;&lt;uia automationid='dtable' role='table' /&gt;&lt;uia name='Stock Overview Overview Analytics Performance Company News Chart Key Statistics Financial Profiles Corporate Action ROI Calculator*' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia idx='1' role='group' /&gt;&lt;uia idx='2' role='table' /&gt;&lt;uia name='*' role='cell' tableCol='0' tableRow='0' /&gt;&lt;uia role='table' /&gt;&lt;uia role='cell' tableCol='0' tableRow='0' /&gt;&lt;uia role='edit' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="5000" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="enter" KeyModifiers="None" SpecialKey="True">
+                <ui:SendHotkey.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="0cb828e5-51ca-4869-b7fc-3b8edd27d290">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SendHotkey.Target>
+              </ui:SendHotkey>
+              <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'cell BBRI'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_1">
+                <ui:GetOCRText.OCREngine>
+                  <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                    <ActivityFunc.Argument>
+                      <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                    </ActivityFunc.Argument>
+                    <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" />
+                  </ActivityFunc>
+                </ui:GetOCRText.OCREngine>
+                <ui:GetOCRText.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5e89e765-b88b-4ed0-b7eb-cd609b2ec5d2" InformativeScreenshot="01779100d2927501e34d020b5175564f" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;&lt;uia automationid='dtable' role='table' /&gt;&lt;uia name='Stock Overview Overview Analytics Performance Company News Chart Key Statistics Financial Profiles Corporate Action ROI Calculator *' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia idx='1' role='group' /&gt;&lt;uia idx='2' role='table' /&gt;&lt;uia name='*' role='cell' tableCol='0' tableRow='0' /&gt;&lt;uia role='table' /&gt;&lt;uia name='*' role='cell' tableCol='1' tableRow='0' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetOCRText.Target>
+                <ui:GetOCRText.Text>
+                  <OutArgument x:TypeArguments="x:String">[profile]</OutArgument>
+                </ui:GetOCRText.Text>
+              </ui:GetOCRText>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[emiten]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[profile.Substring(0, 4).ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[harga]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[profile.Split(" "c)(profile.Split(” “c).Count-3)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[hargargx]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(harga,"\D","")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[hargaint]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[CInt(hargargx)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[perubahan]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[profile.Split(" "c).Last]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[perubahanhrg]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[perubahan.Replace("(", "").Replace(")", "").Replace("%", "")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">[perubahanhrgint]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(perubahanhrg)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="4000" DisplayName="Click 'link  Profiles'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c0e44392-7cfd-4931-a254-78d01f88616d" InformativeScreenshot="704498a941a1769501c0d14aa8f2ef26" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;&lt;uia automationid='dtable' role='table' /&gt;&lt;uia name='Stock Overview Overview Analytics Performance Company News Chart Key Statistics Financial Profiles Corporate Action ROI Calculator*' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia idx='1' role='group' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia name='Overview Analytics Performance Company News Chart Key Statistics Financial Profiles Corporate Action ROI Calculator' role='cell' tableCol='0' tableRow='0' /&gt;&lt;uia automationid='ssm4' name='Profiles' role='link' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="pgdn" KeyModifiers="None" SpecialKey="True">
+                <ui:SendHotkey.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="734e1f70-81a8-4087-a88d-3f13a8e69ca5">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SendHotkey.Target>
+              </ui:SendHotkey>
+              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="1500" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="pgdn" KeyModifiers="None" SpecialKey="True">
+                <ui:SendHotkey.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="1f3256e3-e2f6-40f6-8637-10ea57ffa39b">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SendHotkey.Target>
+              </ui:SendHotkey>
+              <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'cell  : 165'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_2">
+                <ui:GetOCRText.OCREngine>
+                  <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                    <ActivityFunc.Argument>
+                      <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                    </ActivityFunc.Argument>
+                    <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_2" Image="[Image]" />
+                  </ActivityFunc>
+                </ui:GetOCRText.OCREngine>
+                <ui:GetOCRText.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e93a6c75-15aa-4d6f-801e-d3a3329fff13" InformativeScreenshot="09beab6ac4f541cdc056a0a416b77145" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;&lt;uia automationid='dtable' role='table' /&gt;&lt;uia name='Stock Overview Overview Analytics Performance Company News Chart Key Statistics Financial Profiles Corporate Action ROI Calculator*' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia role='group' /&gt;&lt;uia idx='6' role='table' /&gt;&lt;uia name='Earnings Per Share (EPS)*' role='cell' tableCol='1' tableRow='0' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Earnings Valuation Dividend Per Share (DPS) : 168.20219 Earnings Per Share (EPS)* : 165 Revenue Per Share (RPS)* : 1119 Book Value Per Share (BVPS) : 1503 Cash Flow Per Share (CFPS)* : -593 Cash Eqvl Per Share (CEPS) : 607 Net Asset Value Per Sh. (NAVS) : 1523 Dividend Yield : 5.41% Price Earnings Ratio (PER)* : 18.85x Price Sales Ratio (PSR)* : 2.78x Price Book Value Rt. (PBVR) : 2.07x Price Cash Flow Rt. (PCFR)* : -5.24x Profitability Liquidity Gross Profit Margin (GPM) : na Operating Profit Margin (OPM) : 19.75% Net Profit Margin (NPM) : 14.74% Earnings-Int&amp;amp;Tax Margin(EBITM) : na Dividend Payout Ratio (DPR) : 101.94% Return On Equity (ROE)* : 10.97% Return On Assets (ROA)* : 1.46% Debt Equity Ratio (DER) : 647.14% Cash Ratio (CR) : 6.36% Quick Ratio (QR) : 109.34% Current Ratio (CRR) : 109.34% * Annualized' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Dividend Per Share (DPS) : 168.20219 Earnings Per Share (EPS)* : 165 Revenue Per Share (RPS)* : 1119 Book Value Per Share (BVPS) : 1503 Cash Flow Per Share (CFPS)* : -593 Cash Eqvl Per Share (CEPS) : 607 Net Asset Value Per Sh. (NAVS) : 1523' role='cell' tableCol='0' tableRow='1' /&gt;&lt;uia role='table' /&gt;&lt;uia name=': *' role='cell' tableCol='1' tableRow='1' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetOCRText.Target>
+                <ui:GetOCRText.Text>
+                  <OutArgument x:TypeArguments="x:String">[eps]</OutArgument>
+                </ui:GetOCRText.Text>
+              </ui:GetOCRText>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[eps]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[eps.Replace(":",string.Empty).Trim]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">[epsint]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(eps)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'cell  : 5.48%'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_5">
+                <ui:GetOCRText.OCREngine>
+                  <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                    <ActivityFunc.Argument>
+                      <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                    </ActivityFunc.Argument>
+                    <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_5" Image="[Image]" />
+                  </ActivityFunc>
+                </ui:GetOCRText.OCREngine>
+                <ui:GetOCRText.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f3bad47b-b880-4252-b0c4-d40810b3d343" InformativeScreenshot="79c13d6b03aeb4e0d139036e29bcaeb9" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;&lt;uia automationid='dtable' role='table' /&gt;&lt;uia name='Stock Overview Overview Analytics Performance Company News Chart Key Statistics Financial Profiles Corporate Action ROI Calculator*' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia role='group' /&gt;&lt;uia idx='6' role='table' /&gt;&lt;uia name='Earnings Per Share (EPS)*' role='cell' tableCol='1' tableRow='0' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Earnings Valuation Dividend Per Share (DPS)*' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Dividend Yield : 5.48% Price Earnings Ratio (PER)* : 18.61x Price Sales Ratio (PSR)* : 2.74x Price Book Value Rt. (PBVR) : 2.04x Price Cash Flow Rt. (PCFR)* : -5.18x' role='cell' tableCol='1' tableRow='1' /&gt;&lt;uia role='table' /&gt;&lt;uia name=': *' role='cell' tableCol='1' tableRow='0' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetOCRText.Target>
+                <ui:GetOCRText.Text>
+                  <OutArgument x:TypeArguments="x:String">[divyield]</OutArgument>
+                </ui:GetOCRText.Text>
+              </ui:GetOCRText>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[divyield]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[divyield.Replace(":",string.Empty).Trim.Replace("%", "")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">[divyieldint]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(divyield)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'cell  : 18.85x'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_3">
+                <ui:GetOCRText.OCREngine>
+                  <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                    <ActivityFunc.Argument>
+                      <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                    </ActivityFunc.Argument>
+                    <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" />
+                  </ActivityFunc>
+                </ui:GetOCRText.OCREngine>
+                <ui:GetOCRText.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="20620720-f6b5-4117-b0d6-a42fb20b46ee" InformativeScreenshot="f5959fc66e0800d949508b419a5aa01e" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;&lt;uia automationid='dtable' role='table' /&gt;&lt;uia name='Stock Overview Overview Analytics Performance Company News Chart Key Statistics Financial Profiles Corporate Action ROI Calculator*' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia role='group' /&gt;&lt;uia idx='6' role='table' /&gt;&lt;uia name='Earnings Per Share (EPS)*' role='cell' tableCol='1' tableRow='0' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Earnings Valuation Dividend Per Share (DPS) : 168.20219 Earnings Per Share (EPS)* : 165 Revenue Per Share (RPS)* : 1119 Book Value Per Share (BVPS) : 1503 Cash Flow Per Share (CFPS)* : -593 Cash Eqvl Per Share (CEPS) : 607 Net Asset Value Per Sh. (NAVS) : 1523 Dividend Yield : 5.41% Price Earnings Ratio (PER)* : 18.85x Price Sales Ratio (PSR)* : 2.78x Price Book Value Rt. (PBVR) : 2.07x Price Cash Flow Rt. (PCFR)* : -5.24x Profitability Liquidity Gross Profit Margin (GPM) : na Operating Profit Margin (OPM) : 19.75% Net Profit Margin (NPM) : 14.74% Earnings-Int&amp;amp;Tax Margin(EBITM) : na Dividend Payout Ratio (DPR) : 101.94% Return On Equity (ROE)* : 10.97% Return On Assets (ROA)* : 1.46% Debt Equity Ratio (DER) : 647.14% Cash Ratio (CR) : 6.36% Quick Ratio (QR) : 109.34% Current Ratio (CRR) : 109.34% * Annualized' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Dividend Yield : 5.41% Price Earnings Ratio (PER)* : 18.85x Price Sales Ratio (PSR)* : 2.78x Price Book Value Rt. (PBVR) : 2.07x Price Cash Flow Rt. (PCFR)* : -5.24x' role='cell' tableCol='1' tableRow='1' /&gt;&lt;uia role='table' /&gt;&lt;uia name=': *' role='cell' tableCol='1' tableRow='1' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetOCRText.Target>
+                <ui:GetOCRText.Text>
+                  <OutArgument x:TypeArguments="x:String">[per]</OutArgument>
+                </ui:GetOCRText.Text>
+              </ui:GetOCRText>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[per]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[per.Replace(":",string.Empty).Trim.Replace("x", "")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">[perint]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(per)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'cell  : 2.07x'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
+                <ui:GetOCRText.OCREngine>
+                  <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                    <ActivityFunc.Argument>
+                      <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                    </ActivityFunc.Argument>
+                    <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_4" Image="[Image]" />
+                  </ActivityFunc>
+                </ui:GetOCRText.OCREngine>
+                <ui:GetOCRText.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="09d0d4df-b912-41fb-9477-c95df09bbc79" InformativeScreenshot="484cca802670e7e6dc070c869974cb81" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;&lt;uia automationid='dtable' role='table' /&gt;&lt;uia name='Stock Overview Overview Analytics Performance Company News Chart Key Statistics Financial Profiles Corporate Action ROI Calculator*' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia role='group' /&gt;&lt;uia idx='6' role='table' /&gt;&lt;uia name='Earnings Per Share (EPS)*' role='cell' tableCol='1' tableRow='0' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Earnings Valuation Dividend Per Share (DPS) : 168.20219 Earnings Per Share (EPS)* : 165 Revenue Per Share (RPS)* : 1119 Book Value Per Share (BVPS) : 1503 Cash Flow Per Share (CFPS)* : -593 Cash Eqvl Per Share (CEPS) : 607 Net Asset Value Per Sh. (NAVS) : 1523 Dividend Yield : 5.41% Price Earnings Ratio (PER)* : 18.85x Price Sales Ratio (PSR)* : 2.78x Price Book Value Rt. (PBVR) : 2.07x Price Cash Flow Rt. (PCFR)* : -5.24x Profitability Liquidity Gross Profit Margin (GPM) : na Operating Profit Margin (OPM) : 19.75% Net Profit Margin (NPM) : 14.74% Earnings-Int&amp;amp;Tax Margin(EBITM) : na Dividend Payout Ratio (DPR) : 101.94% Return On Equity (ROE)* : 10.97% Return On Assets (ROA)* : 1.46% Debt Equity Ratio (DER) : 647.14% Cash Ratio (CR) : 6.36% Quick Ratio (QR) : 109.34% Current Ratio (CRR) : 109.34% * Annualized' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Dividend Yield : 5.41% Price Earnings Ratio (PER)* : 18.85x Price Sales Ratio (PSR)* : 2.78x Price Book Value Rt. (PBVR) : 2.07x Price Cash Flow Rt. (PCFR)* : -5.24x' role='cell' tableCol='1' tableRow='1' /&gt;&lt;uia role='table' /&gt;&lt;uia name=': *' role='cell' tableCol='1' tableRow='3' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetOCRText.Target>
+                <ui:GetOCRText.Text>
+                  <OutArgument x:TypeArguments="x:String">[pbv]</OutArgument>
+                </ui:GetOCRText.Text>
+              </ui:GetOCRText>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[pbv]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[pbv.Replace(":",string.Empty).Trim.Replace("x", "")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">[pbvint]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(pbv)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'cell  : 10.97%'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_6">
+                <ui:GetOCRText.OCREngine>
+                  <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                    <ActivityFunc.Argument>
+                      <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                    </ActivityFunc.Argument>
+                    <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_6" Image="[Image]" />
+                  </ActivityFunc>
+                </ui:GetOCRText.OCREngine>
+                <ui:GetOCRText.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3bf4d87a-1c4f-492e-a8cb-e3b8f9fdba3c" InformativeScreenshot="d444f8d2c59cc4e67f4a3e51ff0b11d8" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;&lt;uia automationid='dtable' role='table' /&gt;&lt;uia name='Stock Overview Overview Analytics Performance Company News Chart Key Statistics Financial Profiles Corporate Action ROI Calculator*' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia role='group' /&gt;&lt;uia idx='6' role='table' /&gt;&lt;uia name='Earnings Per Share (EPS)*' role='cell' tableCol='1' tableRow='0' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Earnings Valuation Dividend Per Share (DPS) : 168.20219 Earnings Per Share (EPS)* : 165 Revenue Per Share (RPS)* : 1119 Book Value Per Share (BVPS) : 1503 Cash Flow Per Share (CFPS)* : -593 Cash Eqvl Per Share (CEPS) : 607 Net Asset Value Per Sh. (NAVS) : 1523 Dividend Yield : 5.48% Price Earnings Ratio (PER)* : 18.61x Price Sales Ratio (PSR)* : 2.74x Price Book Value Rt. (PBVR) : 2.04x Price Cash Flow Rt. (PCFR)* : -5.18x Profitability Liquidity Gross Profit Margin (GPM) : na Operating Profit Margin (OPM) : 19.75% Net Profit Margin (NPM) : 14.74% Earnings-Int&amp;amp;Tax Margin(EBITM) : na Dividend Payout Ratio (DPR) : 101.94% Return On Equity (ROE)* : 10.97% Return On Assets (ROA)* : 1.46% Debt Equity Ratio (DER) : 647.14% Cash Ratio (CR) : 6.36% Quick Ratio (QR) : 109.34% Current Ratio (CRR) : 109.34% * Annualized' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Return On Equity (ROE)* : 10.97% Return On Assets (ROA)* : 1.46% Debt Equity Ratio (DER) : 647.14% Cash Ratio (CR) : 6.36% Quick Ratio (QR) : 109.34% Current Ratio (CRR) : 109.34%' role='cell' tableCol='1' tableRow='4' /&gt;&lt;uia role='table' /&gt;&lt;uia name=': *' role='cell' tableCol='1' tableRow='0' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetOCRText.Target>
+                <ui:GetOCRText.Text>
+                  <OutArgument x:TypeArguments="x:String">[roe]</OutArgument>
+                </ui:GetOCRText.Text>
+              </ui:GetOCRText>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[roe]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[roe.Replace(":",string.Empty).Trim.Replace("%", "")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">[roeint]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(roe)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'cell  : 647.14%'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_7">
+                <ui:GetOCRText.OCREngine>
+                  <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                    <ActivityFunc.Argument>
+                      <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                    </ActivityFunc.Argument>
+                    <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_7" Image="[Image]" />
+                  </ActivityFunc>
+                </ui:GetOCRText.OCREngine>
+                <ui:GetOCRText.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bbb7e517-bbd7-443f-813b-bd7890018b26" InformativeScreenshot="8682d4939647f2fbbcd14709967326a9" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;&lt;uia automationid='dtable' role='table' /&gt;&lt;uia name='Stock Overview Overview Analytics Performance Company News Chart Key Statistics Financial Profiles Corporate Action ROI Calculator*' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia role='group' /&gt;&lt;uia idx='6' role='table' /&gt;&lt;uia name='Earnings Per Share (EPS)*' role='cell' tableCol='1' tableRow='0' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Earnings Valuation Dividend Per Share (DPS) : 168.20219 Earnings Per Share (EPS)* : 165 Revenue Per Share (RPS)* : 1119 Book Value Per Share (BVPS) : 1503 Cash Flow Per Share (CFPS)* : -593 Cash Eqvl Per Share (CEPS) : 607 Net Asset Value Per Sh. (NAVS) : 1523 Dividend Yield : 5.48% Price Earnings Ratio (PER)* : 18.61x Price Sales Ratio (PSR)* : 2.74x Price Book Value Rt. (PBVR) : 2.04x Price Cash Flow Rt. (PCFR)* : -5.18x Profitability Liquidity Gross Profit Margin (GPM) : na Operating Profit Margin (OPM) : 19.75% Net Profit Margin (NPM) : 14.74% Earnings-Int&amp;amp;Tax Margin(EBITM) : na Dividend Payout Ratio (DPR) : 101.94% Return On Equity (ROE)* : 10.97% Return On Assets (ROA)* : 1.46% Debt Equity Ratio (DER) : 647.14% Cash Ratio (CR) : 6.36% Quick Ratio (QR) : 109.34% Current Ratio (CRR) : 109.34% * Annualized' role='cell' tableCol='0' tableRow='3' /&gt;&lt;uia idx='1' role='table' /&gt;&lt;uia omit:name='Return On Equity (ROE)* : 10.97% Return On Assets (ROA)* : 1.46% Debt Equity Ratio (DER) : 647.14% Cash Ratio (CR) : 6.36% Quick Ratio (QR) : 109.34% Current Ratio (CRR) : 109.34%' role='cell' tableCol='1' tableRow='4' /&gt;&lt;uia role='table' /&gt;&lt;uia name=': *' role='cell' tableCol='1' tableRow='2' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetOCRText.Target>
+                <ui:GetOCRText.Text>
+                  <OutArgument x:TypeArguments="x:String">[der]</OutArgument>
+                </ui:GetOCRText.Text>
+              </ui:GetOCRText>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[der]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[der.Replace(":",string.Empty).Trim.Replace("%", "")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">[derint]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(der)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{emiten,hargaint,perubahanhrgint,epsint,perint,pbvint,roeint,derint,divyieldint}]" DataTable="[outdt]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="pgup" KeyModifiers="None" SpecialKey="True">
+                <ui:SendHotkey.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3a9e9a49-7cfb-4fb8-855f-f5c67416e4af">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SendHotkey.Target>
+              </ui:SendHotkey>
+              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="pgup" KeyModifiers="None" SpecialKey="True">
+                <ui:SendHotkey.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3a9e9a49-7cfb-4fb8-855f-f5c67416e4af">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SendHotkey.Target>
+              </ui:SendHotkey>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ForEachRow>
+      <ui:CloseApplication DisplayName="Close Application 'ApplicationFrameTitleBa...'" sap:VirtualizedContainerService.HintSize="445,106" sap2010:WorkflowViewState.IdRef="CloseApplication_2">
+        <ui:CloseApplication.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c0b03b57-3106-4606-8e17-5c9d2eb04891" InformativeScreenshot="128c3a64b2087262ea2d4b828f711e5a" Selector="&lt;wnd app='applicationframehost.exe' appid='PTRTIInfokom.RTIAnalytics_rxn4k5vne151r!App' title='RTI Analytics' /&gt;&lt;wnd cls='ApplicationFrameTitleBarWindow' idx='1' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:CloseApplication.Target>
+      </ui:CloseApplication>
+      <ud:ChangeColumnDatatype ColumnIndex="{x:Null}" DataTable="{x:Null}" ColumnName="Change (%)" DisplayName="Change column datatype" sap:VirtualizedContainerService.HintSize="445,22" sap2010:WorkflowViewState.IdRef="ChangeColumnDatatype_1" InputDataTable="[outdt]" TypeArgument="x:Double" />
+      <ud:ChangeColumnDatatype ColumnIndex="{x:Null}" DataTable="{x:Null}" ColumnName="EPS" DisplayName="Change column datatype" sap:VirtualizedContainerService.HintSize="445,22" sap2010:WorkflowViewState.IdRef="ChangeColumnDatatype_2" InputDataTable="[outdt]" TypeArgument="x:Double" />
+      <ud:ChangeColumnDatatype ColumnIndex="{x:Null}" DataTable="{x:Null}" ColumnName="PER (x)" DisplayName="Change column datatype" sap:VirtualizedContainerService.HintSize="445,22" sap2010:WorkflowViewState.IdRef="ChangeColumnDatatype_3" InputDataTable="[outdt]" TypeArgument="x:Double" />
+      <ud:ChangeColumnDatatype ColumnIndex="{x:Null}" DataTable="{x:Null}" ColumnName="PBV (x)" DisplayName="Change column datatype" sap:VirtualizedContainerService.HintSize="445,22" sap2010:WorkflowViewState.IdRef="ChangeColumnDatatype_4" InputDataTable="[outdt]" TypeArgument="x:Double" />
+      <ud:ChangeColumnDatatype ColumnIndex="{x:Null}" DataTable="{x:Null}" ColumnName="ROE (%)" DisplayName="Change column datatype" sap:VirtualizedContainerService.HintSize="445,22" sap2010:WorkflowViewState.IdRef="ChangeColumnDatatype_5" InputDataTable="[outdt]" TypeArgument="x:Double" />
+      <ud:ChangeColumnDatatype ColumnIndex="{x:Null}" DataTable="{x:Null}" ColumnName="DER (%)" DisplayName="Change column datatype" sap:VirtualizedContainerService.HintSize="445,22" sap2010:WorkflowViewState.IdRef="ChangeColumnDatatype_6" InputDataTable="[outdt]" TypeArgument="x:Double" />
+      <ud:ChangeColumnDatatype ColumnIndex="{x:Null}" DataTable="{x:Null}" ColumnName="Div. Yield (%)" DisplayName="Change column datatype" sap:VirtualizedContainerService.HintSize="445,22" sap2010:WorkflowViewState.IdRef="ChangeColumnDatatype_7" InputDataTable="[outdt]" TypeArgument="x:Double" />
+      <ui:ReadCell Cell="B10" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_7" SheetName="Sheet1" WorkbookPath="DataEmail.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="x:String">[excelpath]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:WriteRange AddHeaders="True" DataTable="[outdt]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="445,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[excelpath.ToString+Now.ToString(&quot;dd-MM-yyyy&quot;)+&quot;_StockPrice.xlsx&quot;]" />
+      <bes:ChangeCellType ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" Cell="B2:B101" CellFormat="0" Delay="3" DisplayName="Change Cell Type" FilePath="[excelpath.ToString+Now.ToString(&quot;dd-MM-yyyy&quot;)+&quot;_StockPrice.xlsx&quot;]" sap:VirtualizedContainerService.HintSize="445,70" sap2010:WorkflowViewState.IdRef="ChangeCellType_1" SheetName="Sheet1" />
+      <bes:ChangeCellType ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" Cell="C2:C101" CellFormat="0.00" Delay="3" DisplayName="Change Cell Type" FilePath="[excelpath.ToString+Now.ToString(&quot;dd-MM-yyyy&quot;)+&quot;_StockPrice.xlsx&quot;]" sap:VirtualizedContainerService.HintSize="445,70" sap2010:WorkflowViewState.IdRef="ChangeCellType_2" SheetName="Sheet1" />
+      <bes:ChangeCellType ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" Cell="D2:D101" CellFormat="0" Delay="3" DisplayName="Change Cell Type" FilePath="[excelpath.ToString+Now.ToString(&quot;dd-MM-yyyy&quot;)+&quot;_StockPrice.xlsx&quot;]" sap:VirtualizedContainerService.HintSize="445,70" sap2010:WorkflowViewState.IdRef="ChangeCellType_3" SheetName="Sheet1" />
+      <bes:ChangeCellType ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" Cell="E2:I101" CellFormat="0.00" Delay="3" DisplayName="Change Cell Type" FilePath="[excelpath.ToString+Now.ToString(&quot;dd-MM-yyyy&quot;)+&quot;_StockPrice.xlsx&quot;]" sap:VirtualizedContainerService.HintSize="445,70" sap2010:WorkflowViewState.IdRef="ChangeCellType_4" SheetName="Sheet1" />
+      <ui:ReadCell Cell="C2" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_15" SheetName="Sheet1" WorkbookPath="StockFilter.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[epsfilter]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="C3" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_16" SheetName="Sheet1" WorkbookPath="StockFilter.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[perfilter]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="C4" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_17" SheetName="Sheet1" WorkbookPath="StockFilter.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[pbvfilter]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="C5" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_18" SheetName="Sheet1" WorkbookPath="StockFilter.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[roefilter]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="C6" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_19" SheetName="Sheet1" WorkbookPath="StockFilter.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[derfilter]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="C7" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_20" SheetName="Sheet1" WorkbookPath="StockFilter.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[divyieldfilter]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="445,514" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="[excelpath.ToString+Now.ToString(&quot;dd-MM-yyyy&quot;)+&quot;_StockPrice.xlsx&quot;]">
+        <ui:ExcelApplicationScope.Body>
+          <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,405" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExcelReadRange AddHeaders="True" DataTable="[hasilexcel]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="Sheet1">
+                <ui:ExcelReadRange.Range>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </ui:ExcelReadRange.Range>
+              </ui:ExcelReadRange>
+              <ui:FilterDataTable DataTable="[hasilexcel]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[filterdt]" SelectColumnsMode="Remove">
+                <ui:FilterDataTable.Filters>
+                  <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="8">
+                    <ui:FilterOperationArgument BooleanOperator="And" Operator="GTE">
+                      <ui:FilterOperationArgument.Column>
+                        <InArgument x:TypeArguments="x:String">["EPS"]</InArgument>
+                      </ui:FilterOperationArgument.Column>
+                      <ui:FilterOperationArgument.Operand>
+                        <InArgument x:TypeArguments="ui:GenericValue">[epsfilter]</InArgument>
+                      </ui:FilterOperationArgument.Operand>
+                    </ui:FilterOperationArgument>
+                    <ui:FilterOperationArgument BooleanOperator="And" Operator="LTE">
+                      <ui:FilterOperationArgument.Column>
+                        <InArgument x:TypeArguments="x:String">["PER (x)"]</InArgument>
+                      </ui:FilterOperationArgument.Column>
+                      <ui:FilterOperationArgument.Operand>
+                        <InArgument x:TypeArguments="ui:GenericValue">[perfilter]</InArgument>
+                      </ui:FilterOperationArgument.Operand>
+                    </ui:FilterOperationArgument>
+                    <ui:FilterOperationArgument BooleanOperator="And" Operator="LTE">
+                      <ui:FilterOperationArgument.Column>
+                        <InArgument x:TypeArguments="x:String">["PBV (x)"]</InArgument>
+                      </ui:FilterOperationArgument.Column>
+                      <ui:FilterOperationArgument.Operand>
+                        <InArgument x:TypeArguments="ui:GenericValue">[pbvfilter]</InArgument>
+                      </ui:FilterOperationArgument.Operand>
+                    </ui:FilterOperationArgument>
+                    <ui:FilterOperationArgument BooleanOperator="And" Operator="GTE">
+                      <ui:FilterOperationArgument.Column>
+                        <InArgument x:TypeArguments="x:String">["ROE (%)"]</InArgument>
+                      </ui:FilterOperationArgument.Column>
+                      <ui:FilterOperationArgument.Operand>
+                        <InArgument x:TypeArguments="ui:GenericValue">[roefilter]</InArgument>
+                      </ui:FilterOperationArgument.Operand>
+                    </ui:FilterOperationArgument>
+                    <ui:FilterOperationArgument BooleanOperator="And" Operator="LTE">
+                      <ui:FilterOperationArgument.Column>
+                        <InArgument x:TypeArguments="x:String">["DER (%)"]</InArgument>
+                      </ui:FilterOperationArgument.Column>
+                      <ui:FilterOperationArgument.Operand>
+                        <InArgument x:TypeArguments="ui:GenericValue">[derfilter]</InArgument>
+                      </ui:FilterOperationArgument.Operand>
+                    </ui:FilterOperationArgument>
+                    <ui:FilterOperationArgument BooleanOperator="And" Operator="GTE">
+                      <ui:FilterOperationArgument.Column>
+                        <InArgument x:TypeArguments="x:String">["Div. Yield (%)"]</InArgument>
+                      </ui:FilterOperationArgument.Column>
+                      <ui:FilterOperationArgument.Operand>
+                        <InArgument x:TypeArguments="ui:GenericValue">[divyieldfilter]</InArgument>
+                      </ui:FilterOperationArgument.Operand>
+                    </ui:FilterOperationArgument>
+                  </scg:List>
+                </ui:FilterDataTable.Filters>
+                <ui:FilterDataTable.SelectColumns>
+                  <scg:List x:TypeArguments="InArgument" Capacity="4">
+                    <InArgument x:TypeArguments="x:String">["Price"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["Change (%)"]</InArgument>
+                  </scg:List>
+                </ui:FilterDataTable.SelectColumns>
+              </ui:FilterDataTable>
+              <ui:WriteRange AddHeaders="True" DataTable="[filterdt]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[excelpath.ToString+Now.ToString(&quot;dd-MM-yyyy&quot;)+&quot;_FilteredStock.xlsx&quot;]" />
+            </Sequence>
+          </ActivityAction>
+        </ui:ExcelApplicationScope.Body>
+      </ui:ExcelApplicationScope>
+      <ui:ReadCell Cell="B2" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_8" SheetName="Sheet1" WorkbookPath="DataEmail.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[emailpengirim]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="B3" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_9" SheetName="Sheet1" WorkbookPath="DataEmail.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[passwordpengirim]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="B6" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_10" SheetName="Sheet1" WorkbookPath="DataEmail.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[penerima]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="B7" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_11" SheetName="Sheet1" WorkbookPath="DataEmail.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[subject]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="B8" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="445,87" sap2010:WorkflowViewState.IdRef="ReadCell_12" SheetName="Sheet1" WorkbookPath="DataEmail.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[body]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[body.Replace(“(date2)”,Now.ToString(&quot;d MMMM yyyy&quot;)+&quot; at &quot;+Now.ToString(&quot;HH:mm&quot;))]" DisplayName="Send SMTP Mail Message" Email="[emailpengirim]" EnableSSL="True" From="[emailpengirim]" sap:VirtualizedContainerService.HintSize="445,145" sap2010:WorkflowViewState.IdRef="SendMail_2" IsBodyHtml="False" Name="StockBot" Password="[passwordpengirim]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[subject.Replace(“(date1)”,Now.ToString(&quot;dd/MM/yyyy&quot;))]" To="[penerima]">
+        <ui:SendMail.Files>
+          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+            <InArgument x:TypeArguments="x:String">[excelpath.ToString+Now.ToString("dd-MM-yyyy")+"_StockPrice.xlsx"]</InArgument>
+            <InArgument x:TypeArguments="x:String">[excelpath.ToString+Now.ToString("dd-MM-yyyy")+"_FilteredStock.xlsx"]</InArgument>
+          </scg:List>
+        </ui:SendMail.Files>
+      </ui:SendMail>
+    </Sequence>
+  </Sequence>
+</Activity>
